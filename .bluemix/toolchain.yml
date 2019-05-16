@@ -6,11 +6,12 @@ template:
     $ref: "#/messages/template.name"
   description:
     $ref: "#/messages/template.description"
-  header: '![](toolchain.svg?localize)'
+  header: '![Image showing preview of the toolchain](custom_toolchain.png)'
   icon: icon.svg
   required:
     - sample-build
     - sample-repo
+    - analytics
   info:
     #original static git url and branch string definitions
     #git url: >-
@@ -83,6 +84,16 @@ services:
     $ref: slack.yml
   webide:
     service_id: orion
+  analytics:
+   service_id: customtool
+   parameters:
+    name: Analytics
+    description: Usage Details
+    type: Google Analytics
+    lifecyclePhase: LEARN
+    imageUrl: ''
+    documentationUrl: 'https://support.google.com/analytics'
+    dashboard_url: 'https://analytics.google.com/'
 form:
   pipeline:
     parameters:
